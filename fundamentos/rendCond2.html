@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<div id="app">
+    <h1>
+        {{ titulo }}
+    </h1>
+
+    <hr>
+    <p>{{ mensagem }}</p>
+    <hr>
+    <p>Renderizaçao condicional com uso de template</p>
+    <template v-if="detalhes">
+        <p>Tamanho da mensagem: {{ mensagem.length }}</p>
+        <p>Mensagem em maisculo: {{ mensagem.toUpperCase() }}</p>
+    </template>
+    <template v-else>
+        Informações adicionais escondidas.
+    </template>
+    <hr>
+    <p>Renderizaçao condicional sem o uso de template</p>
+    <div v-if="detalhes">
+        <p>Tamanho da mensagem: {{ mensagem.length }}</p>
+        <p>Mensagem em maisculo: {{ mensagem.toUpperCase() }}</p>
+    </div>
+    <div v-else>
+        Informações adicionais escondidas.
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                titulo: "Renderização condicional",
+                mensagem: "Minha mensagem no Vue",
+                detalhes: true
+            }
+        }
+    })
+</script>
